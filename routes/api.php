@@ -35,11 +35,19 @@ Route::group([
         'prefix' => 'kost'
     ], function ($router) {
         Route::post('add', 'KostController@store');
+        Route::post('ask-avail', 'AvailableController@askAvail');
         Route::put('edit/{id}', 'KostController@edit');
         Route::delete('delete/{id}', 'KostController@deleteKost');
         Route::get('/mylist', 'KostController@myKostlist');
         Route::get('/{id}', 'KostController@getDetailKost');
         Route::get('/', 'KostController@getAllKost');
+    });
+
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'ask'
+    ], function ($router) {
+        Route::get('/list', 'AvailableController@getMyList');
     });
 });
 
