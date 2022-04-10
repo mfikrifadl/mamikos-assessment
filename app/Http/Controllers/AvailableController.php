@@ -41,8 +41,7 @@ class AvailableController extends Controller
         if (!$data) {
             return response()->json([
                 'code' => 500,
-                'error' => 'Failed to ask kost',
-                'message' => 'You have asked the availability of this kost',
+                'message' => 'Failed to ask kost',
             ]);
         }
 

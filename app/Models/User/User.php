@@ -67,6 +67,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo('App\Models\RoleUser\RoleUser');
     }
 
+    public function credit()
+    {
+        return $this->belongsTo('App\Models\UserCredit\UserCredit', 'id', 'user_id');
+    }
+
+    public function kosts()
+    {
+        return $this->hasMany('App\Models\OwnerKost\OwnerKost', 'user_id', 'id');
+    }
+
     public function isAdmin()
     {
         if (Auth::user()->role['type'] == 'admin') {

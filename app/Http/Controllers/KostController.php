@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostAnswerAskRequest;
 use App\Http\Requests\PostStoreKostrequest;
 use App\Models\OwnerKost\OwnerKostRepository;
+use App\Models\UserAskAvailable\UserAskAvailableRepository;
 use Illuminate\Http\Request;
 
 class KostController extends Controller
 {
-    public function __construct(OwnerKostRepository $kost)
+    public function __construct(OwnerKostRepository $kost, UserAskAvailableRepository $user_ask)
     {
         $this->middleware('role:owner', ['except' => ['getAllKost', 'getDetailKost']]);
         $this->kost = $kost;
+        $this->user_ask = $user_ask;
     }
 
     public function getAllKost(Request $request)
@@ -121,6 +124,44 @@ class KostController extends Controller
         return response()->json([
             'code' => 200,
             'message' => 'Success Delete Kost',
+        ]);
+    }
+
+    public function getAskList(Request $request)
+    {
+        $filter = $request->post();
+        $data = $this->user_ask->getOwnerList($filter);
+
+        if (!$data) {
+            return response()->json([
+                'code' => 500,
+                'message' => 'Failed Get Ask List',
+            ]);
+        }
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Success Get Ask List',
+            'data' => $data,
+        ]);
+    }
+
+    public function answerAsk(PostAnswerAskRequest $request)
+    {
+        $data = $request->post();
+        $answer = $this->user_ask->answerAsk($data);
+
+        if (!$answer) {
+            return response()->json([
+                'code' => 500,
+                'message' => 'Failed Answer Ask',
+            ]);
+        }
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Success Answer Ask',
+            'data' => $answer,
         ]);
     }
 }

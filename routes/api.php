@@ -48,6 +48,8 @@ Route::group([
         'prefix' => 'ask'
     ], function ($router) {
         Route::get('/list', 'AvailableController@getMyList');
+        Route::get('/owner-list', 'KostController@getAskList');
+        Route::post('/answer', 'KostController@answerAsk');
     });
 });
 
