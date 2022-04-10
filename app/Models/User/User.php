@@ -7,6 +7,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements JWTSubject
@@ -18,10 +19,8 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id'
     ];
 
     /**
@@ -66,5 +65,23 @@ class User extends Authenticatable implements JWTSubject
     public function role()
     {
         return $this->belongsTo('App\Models\RoleUser\RoleUser');
+    }
+
+    public function isAdmin()
+    {
+        if (Auth::user()->role['type'] == 'admin') {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function hasRole($role)
+    {
+        if (Auth::user()->role['type'] == $role) {
+            return true;
+        }
+
+        return false;
     }
 }

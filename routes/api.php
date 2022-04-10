@@ -25,6 +25,9 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('register/owner', 'RegisterController@registerOwner');
+    Route::post('register/user/premium', 'RegisterController@registerUserPremium');
+    Route::post('register/user/regular', 'RegisterController@registerUserRegular');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
