@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "1a7dd84f-8004-42ed-9dfb-5eeba25b8002",
+		"name": "mamikos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "super@super.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "supersuper",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/auth/login",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/auth/me",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/auth/logout",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Owner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Muhammad Fikri F",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fikri@fikri.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "fikrifikri",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "fikrifikri",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/auth/register/owner",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"register",
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User Premium",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Muhammad Fikri F",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fikri@fikri.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "fikrifikri",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "fikrifikri",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/auth/register/user/premium",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"register",
+								"user",
+								"premium"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User Regular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Muhammad Fikri F",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fikri@fikri12.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "fikrifikri",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "fikrifikri",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/auth/register/user/regular",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"register",
+								"user",
+								"regular"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Kost",
+			"item": [
+				{
+					"name": "Add Kost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ok",
+									"type": "text"
+								},
+								{
+									"key": "full_address",
+									"value": "jakarta, Jakarta",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "jakarta",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "jakarta",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "jakarta",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ok",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/kost/add",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit kost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "full_address",
+									"value": "jakarta, Jakarta",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "Jawa Timur",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "jakarta",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "jakarta",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ok",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/kost/edit/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Kost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/kost/delete/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Kost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/kost?page=1&search_by=name&search=ok&sorted_by=price&sorted=desc",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search_by",
+									"value": "name"
+								},
+								{
+									"key": "search",
+									"value": "ok"
+								},
+								{
+									"key": "sorted_by",
+									"value": "price"
+								},
+								{
+									"key": "sorted",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Kost List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/kost/mylist?page=1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"mylist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search_by",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "ok",
+									"disabled": true
+								},
+								{
+									"key": "sorted_by",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sorted",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Kost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/kost/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ask List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/ask/owner-list?page=1&limit=10&sorted=desc&status=not-available",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"ask",
+								"owner-list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sorted",
+									"value": "desc"
+								},
+								{
+									"key": "status",
+									"value": "not-available"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Answer Ask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "available",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ask_id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/ask/answer",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"ask",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ask Available User",
+			"item": [
+				{
+					"name": "List My Ask Available",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/ask/list?status=pending&page=1&limit=20&sorted=desc",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"ask",
+								"list"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "sorted",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ask Avail kost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "kost_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/kost/ask-avail",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"kost",
+								"ask-avail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
